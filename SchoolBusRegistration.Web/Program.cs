@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using SchoolBusRegistration.Domain;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Add services to the container.
+builder.Services.AddDbContext<SchoolBusRegistrationContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 
 var app = builder.Build();
 
