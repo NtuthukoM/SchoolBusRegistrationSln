@@ -10,7 +10,7 @@
 }
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">Default Table</h5>
+        <h5 class="card-title">Transport Requests</h5>
 
         <!-- Default Table -->
         <table class="table">
@@ -32,7 +32,7 @@
                         <td>@item.TransportType</td>
                         <td>@item.Address</td>
                         <td>@item.ChildName</td>
-                        <td>@item.StartDate</td>
+                        <td>@item.StartDate.ToShortDateString()</td>
                         <td>
                             <a asp-action="Details" asp-route-id="@item.Id">Details</a>
                         </td>

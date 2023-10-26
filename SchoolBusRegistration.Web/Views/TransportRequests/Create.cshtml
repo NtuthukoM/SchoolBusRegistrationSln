@@ -10,70 +10,91 @@
 }
 
 <h3>Transport Request</h3>
-@using(Html.BeginForm("Create", "TransportRequests", FormMethod.Post))
+@using(Html.BeginForm("Create", "TransportRequests", FormMethod.Post, new { @class="col-md-9"}))
 {
-    <div>
-        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    @Html.AntiForgeryToken()
+    @if (Model.HasErrors)
+    {        
+        <div class="alert alert-danger bg-danger text-light border-0 alert-dismissible fade show" role="alert">
+            @Html.ValidationSummary(false, "", new { @class = "" })
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Transport Details</h5>
+                <div class="col-md-6 form-group float-left">
+                    @Html.LabelFor(m => m.TransportType)
+                    @Html.DropDownListFor(m => m.TransportType, new SelectList(Model.TransportTypes, "Key", "Value"), "Select Transport Type", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.TransportType, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-6 float-right form-group">
+                    @Html.LabelFor(m => m.StartDate)
+                    @Html.TextBoxFor(m => m.StartDate, new { @class = "form-control", type="date" })
+                    @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+        </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Parent Details</h5>
+
+            <div class="col-md-12 form-group">
+                @Html.LabelFor(m => m.ParentName)
+                @Html.TextBoxFor(m => m.ParentName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ParentName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group float-left">
+                @Html.LabelFor(m => m.EmailAddress)
+                @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group float-right">
+                @Html.LabelFor(m => m.PhoneNumber)
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group float-left">
+                @Html.LabelFor(m => m.IdentityNumber)
+                @Html.TextBoxFor(m => m.IdentityNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.IdentityNumber, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-6 form-group float-right">
+                @Html.LabelFor(m => m.Address)
+                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
     </div>
-    <h4>Transport Details</h4>
-    <div>
-        @Html.LabelFor(m => m.TransportType)
-    @Html.DropDownListFor(m => m.TransportType, new SelectList(Model.TransportTypes, "Key", "Value"), "Select Transport Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.TransportType, "", new { @class = "text-danger" })
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Child details</h5>
+            <div class="col-md-12 form-group">
+                @Html.LabelFor(m => m.ChildName)
+                @Html.TextBoxFor(m => m.ChildName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ChildName, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3 form-group float-left">
+                @Html.LabelFor(m => m.Age)
+                @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3 form-group float-left">
+                @Html.LabelFor(m => m.GradeId)
+                @Html.DropDownListFor(m => m.GradeId, new SelectList(Model.Grades, "Id", "Title"), "Select Grade", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.GradeId, "", new { @class = "text-danger" })
+            </div>
+        </div>
     </div>
-    <div>
-    @Html.LabelFor(m => m.StartDate)
-    @Html.EditorFor(m => m.StartDate, new { @class = "form-control" }) 
-    @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
-    </div>
-
-    <h4>Parent Details</h4>
-    <div>
-        @Html.LabelFor(m => m.ParentName)
-        @Html.TextBoxFor(m => m.ParentName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.ParentName, "", new { @class = "text-danger" })
-</div>
-
-<div>
-    @Html.LabelFor(m => m.EmailAddress)
-    @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.EmailAddress, "", new { @class = "text-danger" })
-</div>
-
-<div>
-@Html.LabelFor(m => m.PhoneNumber)
-    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
-</div>
-
-<div>
-    @Html.LabelFor(m => m.IdentityNumber)
-    @Html.TextBoxFor(m => m.IdentityNumber, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.IdentityNumber, "", new { @class = "text-danger" })
-</div>
-
-<div>
-    @Html.LabelFor(m => m.Address)
-    @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
-</div>
     
-<h4>Child details</h4>
-<div>
-@Html.LabelFor(m => m.ChildName)
-    @Html.TextBoxFor(m => m.ChildName, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.ChildName, "", new { @class = "text-danger" })
-</div>
-<div>
-    @Html.LabelFor(m => m.Age)
-    @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
-</div>
-<div>
-    @Html.LabelFor(m => m.GradeId)
-    @Html.DropDownListFor(m => m.GradeId, new SelectList(Model.Grades, "Id", "Title"), "Select Grade", new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.GradeId, "", new { @class = "text-danger" })
-</div>
-    <input type="submit" class="btn btn-default" value="Submit" />
+    <input type="submit" class="btn btn-primary" value="Submit" />
 
 }

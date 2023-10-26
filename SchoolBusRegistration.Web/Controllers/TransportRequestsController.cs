@@ -49,16 +49,13 @@ namespace SchoolBusRegistration.Web.Controllers
                     transportRequestService.AddTransportRequest(form);
                     return RedirectToAction(nameof(Report));
                 }
-                else
-                {
-                    form.Grades = gradeService.GetGrades();
-                    return View(form);
-                }
             }
             catch
             {
-                return View();
             }
+                form.Grades = gradeService.GetGrades();
+            form.HasErrors = true;
+                return View(form);
         }
 
         public ActionResult Details(int id)
