@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolBusRegistration.Domain", "SchoolBusRegistration.Domain\SchoolBusRegistration.Domain.csproj", "{4B934276-1FA7-4EE8-8C5F-3025F1384DF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolBusRegistration.Domain", "SchoolBusRegistration.Domain\SchoolBusRegistration.Domain.csproj", "{4B934276-1FA7-4EE8-8C5F-3025F1384DF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolBusRegistration.Web", "SchoolBusRegistration.Web\SchoolBusRegistration.Web.csproj", "{C7EEB949-7B68-43C4-B80C-4EB6C0967A97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchoolBusRegistration.Web", "SchoolBusRegistration.Web\SchoolBusRegistration.Web.csproj", "{C7EEB949-7B68-43C4-B80C-4EB6C0967A97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolBusRegistration.Core", "SchoolBusRegistration.Core\SchoolBusRegistration.Core.csproj", "{1A68F3CB-6F6B-461A-A9D4-159300243DF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C7EEB949-7B68-43C4-B80C-4EB6C0967A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7EEB949-7B68-43C4-B80C-4EB6C0967A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7EEB949-7B68-43C4-B80C-4EB6C0967A97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A68F3CB-6F6B-461A-A9D4-159300243DF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A68F3CB-6F6B-461A-A9D4-159300243DF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A68F3CB-6F6B-461A-A9D4-159300243DF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A68F3CB-6F6B-461A-A9D4-159300243DF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

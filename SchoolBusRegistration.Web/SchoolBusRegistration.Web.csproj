@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SchoolBusRegistration.Domain\SchoolBusRegistration.Domain.csproj" />
+    <ProjectReference Include="..\SchoolBusRegistration.Core\SchoolBusRegistration.Core.csproj" />
   </ItemGroup>
 
 </Project>
