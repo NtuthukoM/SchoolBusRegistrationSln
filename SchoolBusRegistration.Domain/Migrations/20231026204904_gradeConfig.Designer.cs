@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SchoolBusRegistration.Domain;
 
@@ -11,9 +12,11 @@ using SchoolBusRegistration.Domain;
 namespace SchoolBusRegistration.Domain.Migrations
 {
     [DbContext(typeof(SchoolBusRegistrationContext))]
-    partial class SchoolBusRegistrationContextModelSnapshot : ModelSnapshot
+    [Migration("20231026204904_gradeConfig")]
+    partial class gradeConfig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

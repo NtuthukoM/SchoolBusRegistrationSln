@@ -1,6 +1,7 @@
 ﻿using SchoolBusRegistration.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,9 @@ namespace SchoolBusRegistration.Core.ViewModels
 {
     public class TransportRequestViewModel
     {
+        public int Id { get; set; }
         public TransportType TransportType { get; set; }
+        [Display(Name= "Transport Type")]
         public string TransportTypeDescription { get { return TransportType.ToString(); } }
         public DateTime StartDate { get; set; }
         public int ParentId { get; set; }

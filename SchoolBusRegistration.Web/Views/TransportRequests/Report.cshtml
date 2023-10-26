@@ -1,0 +1,46 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<SchoolBusRegistration.Core.ViewModels.TransportRequestViewModel>
+
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Default Table</h5>
+
+        <!-- Default Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Transport type</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Child name</th>
+                    <th scope="col">Start Date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.GradeName</td>
+                        <td>@item.TransportType</td>
+                        <td>@item.Address</td>
+                        <td>@item.ChildName</td>
+                        <td>@item.StartDate</td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <!-- End Default Table Example -->
+    </div>
+</div>

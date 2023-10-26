@@ -12,5 +12,6 @@ namespace SchoolBusRegistration.Core.Services
         void AddTransportRequest(TransportRequestFormViewModel transportRequestViewModel);
         void UpdateTransportRequest(TransportRequestFormViewModel transportRequestViewModel);
         List<TransportRequestViewModel> GetTransportRequests();
+        TransportRequestViewModel GetTransportRequest(int id);
     }
 }

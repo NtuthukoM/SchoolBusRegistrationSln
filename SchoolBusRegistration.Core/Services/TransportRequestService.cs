@@ -35,19 +35,26 @@ namespace SchoolBusRegistration.Core.Services
             var child = new Child()
             {
                 Name = transportRequestViewModel.ChildName,
-                Age = transportRequestViewModel.Age,
+                Age = transportRequestViewModel.Age.Value,
                 GradeId = transportRequestViewModel.GradeId.Value,
                 Parent = parent
             };
             var transportRequest = new TransportRequest()
             {
                 Child = child,
-                StartDate = transportRequestViewModel.StartDate,
-                TransportType = transportRequestViewModel.TransportType
+                StartDate = transportRequestViewModel.StartDate.Value,
+                TransportType = transportRequestViewModel.TransportType.Value
             };
             context.TransportRequests.Add(transportRequest);
             context.SaveChanges();
 
+        }
+
+        public TransportRequestViewModel GetTransportRequest(int id)
+        {
+            return context.TransportRequests
+                .ProjectTo<TransportRequestViewModel>(mapper.ConfigurationProvider)
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public List<TransportRequestViewModel> GetTransportRequests()
