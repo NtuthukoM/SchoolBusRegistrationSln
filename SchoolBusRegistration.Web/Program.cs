@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using SchoolBusRegistration.Core.MappingProfile;
+using SchoolBusRegistration.Core.Services;
 using SchoolBusRegistration.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddDbContext<SchoolBusRegistrationContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddAutoMapper(typeof(SchoolBusMappingProfile));
+builder.Services.AddScoped<IGradeService, GradeService>();
+builder.Services.AddScoped<ITransportRequestService, TransportRequestService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

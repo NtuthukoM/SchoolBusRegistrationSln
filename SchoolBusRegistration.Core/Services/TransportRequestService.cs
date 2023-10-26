@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace SchoolBusRegistration.Core.Services
 {
-    public class TansportRequestService : ITansportRequestService
+    public class TransportRequestService : ITransportRequestService
     {
         private readonly IMapper mapper;
         private readonly SchoolBusRegistrationContext context;
 
-        public TansportRequestService(IMapper mapper, SchoolBusRegistrationContext context)
+        public TransportRequestService(IMapper mapper, SchoolBusRegistrationContext context)
         {
             this.mapper = mapper;
             this.context = context;

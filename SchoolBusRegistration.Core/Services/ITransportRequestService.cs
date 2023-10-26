@@ -7,7 +7,7 @@ using SchoolBusRegistration.Core.ViewModels;
 
 namespace SchoolBusRegistration.Core.Services
 {
-    public interface ITansportRequestService
+    public interface ITransportRequestService
     {
         void AddTransportRequest(TransportRequestFormViewModel transportRequestViewModel);
         void UpdateTransportRequest(TransportRequestFormViewModel transportRequestViewModel);
